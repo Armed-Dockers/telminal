@@ -50,7 +50,8 @@ RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
   libnss3 \
   lsb-release \
   xdg-utils \
-  wget
+  wget \
+  envsubst
 
 RUN pip3 install -r requirements.txt
 RUN pip3 install telminal
