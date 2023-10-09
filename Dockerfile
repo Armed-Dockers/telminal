@@ -58,6 +58,7 @@ RUN pip3 install telminal
 
 # Update the JSON file with environment variables
 RUN envsubst < /telminal/config.example.json > /telminal/config.json
+RUN ls
 # Copy the updated JSON file to the container
 COPY /telminal/config.json /usr/local/lib/python3.9/site-packages/telminal/config.json
 
