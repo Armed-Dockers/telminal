@@ -56,4 +56,4 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install telminal
 RUN chmod +x /telminal/start.sh
 
-CMD ["start.sh"]
+CMD ["/telminal/start.sh"]
