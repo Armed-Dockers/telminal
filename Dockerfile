@@ -55,6 +55,10 @@ RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
 
 RUN pip3 install -r requirements.txt
 RUN pip3 install telminal
-RUN chmod +x /telminal/start.sh
 
-CMD ["/telminal/start.sh"]
+# Update the JSON file with environment variables
+RUN envsubst < /telminal/config.example.json > /telminal/config.json
+# Copy the updated JSON file to the container
+COPY /telminal/config.json /usr/local/lib/python3.9/site-packages/telminal/config.json
+
+CMD ["telminal"]
