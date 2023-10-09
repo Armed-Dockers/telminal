@@ -12,9 +12,7 @@ COPY . /telminal
 RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
   apt-get -y update && \
   apt-get install -y \
-  chromium-chromedriver \
-  python3 \
-  py3-pip \
+  chromium-driver \
   gconf-service \
   libasound2 \
   libatk1.0-0 \
