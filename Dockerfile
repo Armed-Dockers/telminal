@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM python:3.9-slim
 
 ENV API_ID=2222
 ENV API_HASH=5432
@@ -10,7 +10,8 @@ WORKDIR /telminal
 COPY . /telminal
 
 RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
-  apk add --no-cache --update --upgrade \
+  apt-get -y update && \
+  apt-get install -y \
   chromium-chromedriver \
   python3 \
   py3-pip \
@@ -52,7 +53,7 @@ RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
   lsb-release \
   xdg-utils \
   wget
-  
+
 RUN pip3 install -r requirements.txt
 RUN pip3 install telminal
 RUN chmod +x /telminal/start.sh
