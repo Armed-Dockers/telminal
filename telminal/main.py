@@ -7,7 +7,7 @@ from telminal import Telminal
 
 async def amain():
     try:
-        with open(PACKAGE_PATH / "config.json", encoding="utf-8") as file:
+        with open("/terminal/config.json", encoding="utf-8") as file:
             config = json.load(file)
     except FileNotFoundError:
         config = {
