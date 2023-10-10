@@ -5,6 +5,10 @@ ENV API_HASH=5432
 ENV TOKEN=1234
 ENV ADMINS=8888
 
+RUN mkdir /telminal
+WORKDIR /telminal
+COPY . /telminal
+
 RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
   apt-get -y update && \
   apt-get install -y \
