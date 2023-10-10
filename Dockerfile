@@ -5,10 +5,6 @@ ENV API_HASH=5432
 ENV TOKEN=1234
 ENV ADMINS=8888
 
-RUN mkdir /telminal
-WORKDIR /telminal
-COPY . /telminal
-
 RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
   apt-get -y update && \
   apt-get install -y \
@@ -57,7 +53,7 @@ RUN pip3 install -r requirements.txt
 RUN pip3 install telminal
 
 # Copy the updated JSON file to the container
-COPY /telminal/config.example.json /usr/local/lib/python3.9/site-packages/telminal/config.json
+COPY config.example.json /usr/local/lib/python3.9/site-packages/telminal/config.json
 RUN sed -i "s/{{API_ID}}/$API_ID/g; s/{{API_HASH}}/$API_HASH/g; s/{{TOKEN}}/$TOKEN/g; s/{{ADMINS}}/$ADMINS/g" /usr/local/lib/python3.9/site-packages/telminal/config.json
 
 CMD ["telminal"]
