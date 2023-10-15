@@ -51,7 +51,4 @@ RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
 RUN pip3 install -r requirements.txt
 RUN pip3 install telminal
 
-# Copy the updated JSON file to the container
-COPY config.example.json /usr/local/lib/python3.9/site-packages/telminal/config.json
-
 CMD ["telminal"]
