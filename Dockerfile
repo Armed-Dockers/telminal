@@ -53,6 +53,5 @@ RUN pip3 install telminal
 
 # Copy the updated JSON file to the container
 COPY config.example.json /usr/local/lib/python3.9/site-packages/telminal/config.json
-RUN sed -i "s/{{API_ID}}/$API_ID/g; s/{{API_HASH}}/$API_HASH/g; s/{{TOKEN}}/$TOKEN/g; s/{{ADMINS}}/$ADMINS/g" /usr/local/lib/python3.9/site-packages/telminal/config.json
 
 CMD ["telminal"]
