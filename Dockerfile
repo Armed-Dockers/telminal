@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM phusion/baseimage:jammy-1.0.1
 
 RUN mkdir /telminal
 WORKDIR /telminal
@@ -46,7 +46,9 @@ RUN echo "---- INSTALL RUNTIME PACKAGES ----" && \
   lsb-release \
   xdg-utils \
   wget \
-  gettext-base
+  gettext-base \
+  python3 \
+  python3-pip
 
 RUN pip3 install -r requirements.txt
 RUN pip3 install telminal
