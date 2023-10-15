@@ -1,10 +1,5 @@
 FROM python:3.9-slim
 
-ENV API_ID=2222
-ENV API_HASH=5432
-ENV TOKEN=1234
-ENV ADMINS=8888
-
 RUN mkdir /telminal
 WORKDIR /telminal
 COPY . /telminal
